@@ -1,137 +1,55 @@
 <script>
-  	import { onMount } from "svelte";
-	import Footer from "./footer.svelte";
+  import { onMount } from "svelte";
+  import Footer from "./footer.svelte";
 
-	import Services from "./services.svelte";
-	import Transaction from "./transaction.svelte";
-  	import NavBar from "../LandingPage/navBar.svelte";
-  	import Mainbody from "../LandingPage/mainbody.svelte";
+  import Services from "./services.svelte";
+  import Transaction from "./transaction.svelte";
+  import NavBar from "../LandingPage/navBar.svelte";
+  import Mainbody from "../LandingPage/mainbody.svelte";
+  import NewBody from "./newBody.svelte";
 
+  let dropDownOn = false;
 
-	
+  function toggleoptionButton() {
+    dropDownOn = !dropDownOn;
+    console.log("dropDownOn:", dropDownOn);
+  }
 
+  let text =
+    "Securing Your Finances, <br> Unleashing Decentralized <br>Possibilities";
+  let displayedText = "";
 
-	let dropDownOn = false;
+  onMount(() => {
+    let index = 0;
 
-	function toggleoptionButton(){
-		dropDownOn = !dropDownOn;
-		console.log("dropDownOn:", dropDownOn);
-	}
+    const intervalId = setInterval(() => {
+      displayedText = text.substring(0, index + 1);
+      index++;
 
-
-
-
-	let text = 'Securing Your Finances, <br> Unleashing Decentralized <br>Possibilities';
-	let displayedText = '';
-
-	onMount(() => {
-		let index = 0;
-
-		const intervalId = setInterval(() => {
-			displayedText = text.substring(0, index + 1);
-			index++;
-
-			if (index === text.length) {
-				clearInterval(intervalId);
-			}
-		}, 100);
-	});
-
+      if (index === text.length) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+  });
 </script>
 
 <svelte:head>
-	<title>DigiPay</title>
-	<meta name="description" content="Svelte demo app" />
+  <title>DigiPay</title>
+  <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-
-
-<main>
-	<NavBar />
-	<Mainbody/>
-	<!-- <Footer /> -->
+<main class="">
+  <NavBar />
+  <!-- <Mainbody /> -->
+  <NewBody />
+  <Footer />
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- 
 <section class="" style="background-image: url('../src/images/BGDES.png');  background-size: cover; background-repeat: no-repeat;
 background-position: center center;"> -->
 
-	<!-- <div class="flex items-center justify-center mt-10 ">
+<!-- <div class="flex items-center justify-center mt-10 ">
 
 
 		<div class="flex flex-col items-start ">
@@ -393,8 +311,7 @@ background-position: center center;"> -->
 
 
 	 -->
-	  
-	
+
 <!-- </section> -->
 
 <!-- <style>
